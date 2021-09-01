@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import AppContext from '../context/AppContext';
 import { PayPalButton } from 'react-paypal-button-v2';
+import AppContext from '../context/AppContext';
 import '../styles/components/Payment.css';
 
 const Payment = ({history}) => {
@@ -19,7 +19,6 @@ const Payment = ({history}) => {
     }
 
     const handlePaymentSuccess = (data) => {
-        console.log(data);
         if (data.status === 'COMPLETED') {
             const newOrder = {
                 buyer,
@@ -33,7 +32,7 @@ const Payment = ({history}) => {
 
     const handleSumTotal = () => {
         const reducer = (accumulator, currentValue) =>
-          accumulator + currentValue.price;
+          {return accumulator + currentValue.price};
         const sum = cart.reduce(reducer, 0);
         return sum;
     };
@@ -57,9 +56,9 @@ const Payment = ({history}) => {
                         paypalOptions={paypalOptions}
                         buttonStyles={buttonStyles}
                         amount={handleSumTotal()}
-                        onSuccess={data => handlePaymentSuccess(data)}
-                        onError={error => console.log(error)}
-                        onCancel={data => console.log(data)}
+                        onSuccess={data => {return handlePaymentSuccess(data)}}
+                        onError={error => {return console.log(error)}}
+                        onCancel={data => {return console.log(data)}}
                    />
                </div>
            </div>
