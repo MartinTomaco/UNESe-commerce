@@ -1,3 +1,5 @@
+UPDATE_1/9/21: This example is currently hosted on firebase at https://unes-e-commerce.web.app/
+
 # UNES e-Commerce
 
 UNES e-Commerce is simple market place with items cards and a cart with a funcional Paypal button.
